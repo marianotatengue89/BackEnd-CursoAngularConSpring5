@@ -1,5 +1,7 @@
 package com.mvillalba.springboot.banckend.apirest.springbootbackendapirest.models.entity;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,8 +12,13 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nombre;
+
     private String apellido;
+
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(name = "create_at")
